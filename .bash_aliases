@@ -1,4 +1,4 @@
-nah () {
+nah() {
     git reset --hard
     git clean -df
     if [ -d ".git/rebase-apply" ] || [ -d ".git/rebase-merge" ]; then
@@ -6,7 +6,7 @@ nah () {
     fi
 }
 
-clean () {
+clean() {
     apt clean
     apt autoclean
     composer cc
@@ -22,6 +22,7 @@ alias ga='git add'
 alias gs='git status'
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 alias gf='git fetch'
+alias gc='git commit -m'
 
 alias crd='composer run dev'
 alias cpr='composer'

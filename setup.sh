@@ -14,4 +14,4 @@ cp -r nvim $HOME/.config/
 apt update
 apt full-upgrade -y
 
-apt install tmux neovim lazygit clang build-essential ripgrep fd wget curl fzf bash-completion composer nodejs golang php php-gd php-imagick php-ldap tree-sitter
+apt install fish tmux neovim lazygit clang build-essential ripgrep fd wget curl fzf bash-completion composer nodejs golang php php-gd php-imagick php-ldap tree-sitter
