@@ -13,6 +13,7 @@ return {
         },
 
         lua_ls = false,
+        stylua = { mason = false },
 
         tailwindcss = {
           filetypes_exclude = { "markdown", "php" },
