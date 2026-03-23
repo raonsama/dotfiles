@@ -3,13 +3,13 @@ apt full-upgrade -y
 
 mkdir -p $HOME/.config
 
-cp -r .bash_aliases $HOME
-cp -r .bashrc $HOME
-cp -r .gitconfig $HOME
-cp -r .termux $HOME
-cp -r .tmux $HOME
-cp -r .tmux.conf $HOME
-cp -r nvim $HOME/.config/
+cp -rf .bash_aliases $HOME
+cp -rf .bashrc $HOME
+cp -rf .gitconfig $HOME
+cp -rf .termux $HOME
+cp -rf .tmux $HOME
+cp -rf .tmux.conf $HOME
+cp -rf nvim $HOME/.config/
 
 apt update
 apt full-upgrade -y
