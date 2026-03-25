@@ -7,15 +7,36 @@ nah() {
 }
 
 clean() {
+    echo "Cleaning APT package cache..."
     apt clean
     apt autoclean
+    apt autoremove -y
+    echo "Cleaning Composer & Node package cache..."
     composer cc
     npm cache clean --force
-    rm -rf $PREFIX/tmp/*
+    echo "Vacuuming system logs..."
+    journalctl --vacuum-time=3d
+    echo "Cleaning user caches..."
+    rm -rf /home/*/.cache/thumbnails/*
+    rm -rf ~/.cache/*
+    echo "Cleaning temporary files..."
+    rm -rf /tmp/*
+    rm -rf /var/tmp/*
+    echo "Cleaning History..."
     rm -f $HOME/.bash_history
 }
 
+viret() {
+    rm -rf $HOME/intelephense
+    rm -rf $HOME/.cache/*
+    rm -rf $HOME/.local/share/nvim
+    rm -rf $HOME/.local/state/nvim
+    chmod -R 700 $HOME/.go
+    rm -rf $HOME/.go
+}
+
 alias aptup='apt update && apt full-upgrade'
+alias toor='proot-distro login debian --no-arch-warning --termux-home'
 
 alias gi='git init'
 alias ga='git add'
@@ -23,6 +44,8 @@ alias gs='git status'
 alias gl="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 alias gf='git fetch'
 alias gc='git commit -m'
+alias gca='git commit --amend'
+alias gp='git push -u origin main'
 
 alias crd='composer run dev'
 alias cpr='composer'

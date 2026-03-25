@@ -1,5 +1,7 @@
-export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="/usr/local/go/bin:/usr/local/nvim/bin:$HOME/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 export GOPATH="$HOME/.go"
+export COMPOSER_ALLOW_SUPERUSER=1
 
 # If not running interactively, don't do anything
 case $- in
@@ -35,8 +37,14 @@ NEWLINE_BEFORE_PROMPT=yes
 # STOP KALI CONFIG VARIABLES
 
 if [ "$color_prompt" = yes ]; then
-    prompt_color='\[\033[;32m\]'
-    info_color='\[\033[1;34m\]'
+    if [ -f /etc/os-release ]; then
+        prompt_color='\[\033[;34m\]'
+        info_color='\[\033[1;31m\]'
+    else
+        prompt_color='\[\033[;32m\]'
+        info_color='\[\033[1;34m\]'
+    fi
+
     prompt_symbol=󱑼
 
     PS1=$prompt_color'┌──${debian_chroot:+($debian_chroot)──}${VIRTUAL_ENV:+(\[\033[0;1m\]$(basename $VIRTUAL_ENV)'$prompt_color')}('$info_color'raon '$prompt_symbol' sama'$prompt_color')-[\[\033[0;1m\]\w'$prompt_color']\n'$prompt_color'└─'$info_color'\$\[\033[0m\] '
@@ -87,8 +95,8 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
+alias ll='ls -lhF'
+alias la='ls -lAh'
 alias l='ls -CF'
 
 # Alias definitions.
@@ -121,6 +129,13 @@ if ! shopt -oq posix; then
 fi
 
 # Autostart tmux
-if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
-    tmux attach-session -t MateX || tmux new-session -s MateX
+if [ -f /etc/os-release ] && [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+    SESSION="MateX"
+
+    tmux attach-session -t "$SESSION" || tmux new-session -s "$SESSION"
+
+    if ! tmux has-session -t "$SESSION" 2>/dev/null; then
+        echo "Session "$SESSION" closed. Running script..."
+        exit
+    fi
 fi
