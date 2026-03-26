@@ -1,7 +1,5 @@
-export PATH="/usr/local/go/bin:/usr/local/nvim/bin:$HOME/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
 export GOPATH="$HOME/.go"
-export COMPOSER_ALLOW_SUPERUSER=1
 
 # If not running interactively, don't do anything
 case $- in
@@ -129,13 +127,13 @@ if ! shopt -oq posix; then
 fi
 
 # Autostart tmux
-if [ -f /etc/os-release ] && [ -z "$TMUX" ] && [ -n "$PS1" ]; then
-    SESSION="MateX"
-
-    tmux attach-session -t "$SESSION" || tmux new-session -s "$SESSION"
-
-    if ! tmux has-session -t "$SESSION" 2>/dev/null; then
-        echo "Session "$SESSION" closed. Running script..."
-        exit
-    fi
-fi
+# if [ -f /etc/os-release ] && [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+#     SESSION="MateX"
+#
+#     tmux attach-session -t "$SESSION" || tmux new-session -s "$SESSION"
+#
+#     if ! tmux has-session -t "$SESSION" 2>/dev/null; then
+#         echo "Session "$SESSION" closed. Running script..."
+#         exit
+#     fi
+# fi

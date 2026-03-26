@@ -36,7 +36,6 @@ viret() {
 }
 
 alias aptup='apt update && apt full-upgrade'
-alias toor='proot-distro login debian --no-arch-warning --termux-home'
 
 alias gi='git init'
 alias ga='git add'

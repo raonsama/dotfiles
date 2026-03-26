@@ -9,9 +9,9 @@ cp -rf .gitconfig $HOME
 cp -rf .termux $HOME
 cp -rf .tmux $HOME
 cp -rf .tmux.conf $HOME
-cp -rf nvim $HOME/.config/
+# cp -rf nvim $HOME/.config/
 
 apt update
 apt full-upgrade -y
 
-apt install fish tmux neovim lazygit clang build-essential ripgrep fd wget curl fzf bash-completion composer nodejs golang php php-gd php-imagick php-ldap tree-sitter
+apt install fish tmux neovim lazygit build-essential ripgrep fd wget curl fzf bash-completion composer nodejs golang php php-gd php-imagick php-ldap tree-sitter
