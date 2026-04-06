@@ -1,7 +1,7 @@
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export GOPATH="$HOME/.go"
-export OPENROUTER_API_KEY="sk-or-v1-*"
 export XDG_RUNTIME_DIR="$PREFIX/tmp"
+export OPENROUTER_API_KEY="sk-or-v1-*"
 
 # If not running interactively, don't do anything
 case $- in
