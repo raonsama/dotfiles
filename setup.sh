@@ -14,7 +14,7 @@ cp -rf .tmux.conf $HOME
 apt update
 apt full-upgrade -y
 
-apt install fish file neofetch tmux neovim lazygit build-essential ripgrep fd wget curl fzf bash-completion composer rust nodejs golang php php-gd php-imagick php-ldap tree-sitter
+apt install fish file neofetch ldd which tmux neovim lazygit build-essential ripgrep fd wget curl fzf bash-completion composer rust nodejs golang php php-gd php-imagick php-ldap tree-sitter
 
 composer global require laravel/installer
 npm install -g mcp-hub@latest
