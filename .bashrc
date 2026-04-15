@@ -2,6 +2,8 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export GOPATH="$HOME/.go"
 export XDG_RUNTIME_DIR="$PREFIX/tmp"
 export OPENROUTER_API_KEY="sk-or-v1-*"
+export OPENAI_BASE_URL="https://generativelanguage.googleapis.com/v1beta/openai/"
+export OPENAI_API_KEY="AIza*"
 
 # If not running interactively, don't do anything
 case $- in
@@ -129,13 +131,13 @@ if ! shopt -oq posix; then
 fi
 
 # Autostart tmux
-# if [ -f /etc/os-release ] && [ -z "$TMUX" ] && [ -n "$PS1" ]; then
-#     SESSION="MateX"
-#
-#     tmux attach-session -t "$SESSION" || tmux new-session -s "$SESSION"
-#
-#     if ! tmux has-session -t "$SESSION" 2>/dev/null; then
-#         echo "Session "$SESSION" closed. Running script..."
-#         exit
-#     fi
-# fi
+if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+    SESSION="MateX"
+
+    tmux attach-session -t "$SESSION" || tmux new-session -s "$SESSION"
+
+    if ! tmux has-session -t "$SESSION" 2>/dev/null; then
+        echo "Session "$SESSION" closed. Running script..."
+        exit
+    fi
+fi
