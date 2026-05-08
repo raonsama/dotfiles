@@ -25,7 +25,7 @@ apt install -y \
   lazygit build-essential ripgrep fd wget curl fzf \
   bash-completion composer rust rust-analyzer rust-src \
   nodejs golang gopls php php-gd php-imagick php-ldap \
-  tree-sitter
+  tree-sitter ollama
 
 # 5. Install Laravel Installer
 if command -v composer &> /dev/null; then
