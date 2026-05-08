@@ -1,9 +1,7 @@
+export PATH="$HOME/thirt-party/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$HOME/.composer/vendor/bin:$PATH"
 export GOPATH="$HOME/.go"
 export XDG_RUNTIME_DIR="$PREFIX/tmp"
-export OPENROUTER_API_KEY="sk-or-v1-*"
-export OPENAI_BASE_URL="https://generativelanguage.googleapis.com/v1beta/openai/"
-export OPENAI_API_KEY="AIza*"
 
 # If not running interactively, don't do anything
 case $- in
@@ -18,6 +16,7 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 shopt -s histverify
+shopt -s extglob
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
