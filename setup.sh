@@ -10,7 +10,7 @@ mkdir -p $HOME/.config
 
 # 3. Membuat Symlinks (dengan pengecekan agar tidak error/double)
 echo "Setting up symlinks..."
-files=("bash_aliases" "bashrc" "gitconfig" "termux" "tmux" "tmux.conf")
+files=("bash_aliases" "bashrc" "profile" "gitconfig" "termux" "tmux" "tmux.conf")
 
 for file in "${files[@]}"; do
     # Hapus file/link lama jika ada agar ln tidak gagal
