@@ -36,9 +36,10 @@ esac
 # START KALI CONFIG VARIABLES
 NEWLINE_BEFORE_PROMPT=yes
 # STOP KALI CONFIG VARIABLES
+CHECKDISTRO=$(uname -r)
 
-if [ "$color_prompt" = yes ]; then
-  if [ -f /etc/os-release ]; then
+if [[ "$color_prompt" = yes ]]; then
+  if [[ -f /etc/os-release ]] || [[ "$CHECKDISTRO" == *"PRoot-Distro"* ]]; then
     prompt_color='\[\033[;34m\]'
     info_color='\[\033[1;31m\]'
   else
@@ -130,7 +131,7 @@ if ! shopt -oq posix; then
 fi
 
 # Autostart tmux
-if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+if [[ "$CHECKDISTRO" != *"PRoot-Distro"* ]] && [[ -z "$TMUX" ]] && [[ -n "$PS1" ]]; then
   SESSION="MateX"
 
   tmux attach-session -t "$SESSION" || tmux new-session -s "$SESSION"
