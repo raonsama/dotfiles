@@ -36,6 +36,7 @@ viret() {
 }
 
 alias aptup='apt update && apt full-upgrade'
+alias root='pd sh termux --isolated --termux-home --no-arch-warning' 
 
 alias gi='git init'
 alias ga='git add'
