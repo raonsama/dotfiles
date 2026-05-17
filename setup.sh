@@ -23,10 +23,10 @@ done
 # 4. Install Packages (dikelompokkan agar rapi)
 echo "Installing packages..."
 apt install --fix-missing --fix-broken -y \
-  termux-api fish file neofetch ldd which tmux neovim \
+  termux-api fish file ldd which tmux neovim \
   lazygit build-essential ripgrep fd wget curl fzf \
   bash-completion composer rust rust-analyzer rust-src \
-  nodejs golang gopls php php-gd php-imagick php-ldap \
+  nodejs golang php php-gd php-imagick php-ldap \
   tree-sitter proot-distro ranger
 
 # 5. Install Laravel Installer
