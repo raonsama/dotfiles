@@ -1,7 +1,15 @@
-export PATH="$HOME/thirt-party/bin:$PATH"
+export PATH="$HOME/thirt-party/bin:$HOME/.go/bin:$PATH"
 export PATH="$HOME/.config/composer/vendor/bin:$HOME/.composer/vendor/bin:$PATH"
 export GOPATH="$HOME/.go"
 export XDG_RUNTIME_DIR="$PREFIX/tmp"
+
+export OLLAMA_NUM_PARALLEL=1
+export OLLAMA_MAX_LOADED_MODELS=1
+export OLLAMA_HOST=127.0.0.1:11434
+export OLLAMA_NOPRUNE=1
+export OLLAMA_NO_CLOUD=true
+
+export DO_NOT_TRACK=1
 
 # If not running interactively, don't do anything
 case $- in
