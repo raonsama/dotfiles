@@ -10,18 +10,21 @@ clean() {
   echo "Cleaning APT package cache..."
   apt clean
   apt autoclean
-  apt autoremove -y
+  apt autoremove --purge -y
   echo "Cleaning Composer & Node package cache..."
   composer cc
   npm cache clean --force
   # echo "Vacuuming system logs..."
   # journalctl --vacuum-time=3d
   echo "Cleaning user caches..."
-  rm -rf /home/*/.cache/thumbnails/*
-  rm -rf ~/.cache/*
+  rm -rf /home/*/.cache/*
+  rm -rf $HOME/*/.cache/*
+  echo "Cleaning app caches..."
+  rm -rf /data/data/com.termux/cache/*
   echo "Cleaning temporary files..."
   rm -rf /tmp/*
   rm -rf /var/tmp/*
+  rm -rf $PREFIX/tmp/*
   echo "Cleaning History..."
   rm -f $HOME/.bash_history
 }
@@ -36,7 +39,7 @@ viret() {
 }
 
 alias aptup='apt update && apt full-upgrade'
-alias root='pd sh termux --isolated --bind $HOME/workspaces:$HOME --no-arch-warning' 
+alias root='pd sh termux --isolated --bind $HOME/workspaces:$HOME --bind $HOME/programming:$HOME/code --no-arch-warning'
 
 alias gi='git init'
 alias ga='git add'
@@ -50,4 +53,4 @@ alias gp='git push -u origin main'
 alias serve='composer run dev'
 alias comp='composer'
 alias art='php artisan'
-alias airun='OLLAMA_CONTEXT_LENGTH=4096 ollama serve'
+alias oll='ollama serve'

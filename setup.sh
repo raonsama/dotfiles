@@ -6,6 +6,8 @@ apt update && apt full-upgrade -y
 
 # 2. Persiapan direktori
 mkdir -p $HOME/.config
+mkdir -p $HOME/workspaces
+mkdir -p $HOME/programming
 [ -d "$HOME/.termux" ] && rm -rf "$HOME/.termux"
 
 # 3. Membuat Symlinks (dengan pengecekan agar tidak error/double)
@@ -25,7 +27,7 @@ apt install -y \
   lazygit build-essential ripgrep fd wget curl fzf \
   bash-completion composer rust rust-analyzer rust-src \
   nodejs golang gopls php php-gd php-imagick php-ldap \
-  tree-sitter proot-distro
+  tree-sitter proot-distro ranger
 
 # 5. Install Laravel Installer
 if command -v composer &> /dev/null; then
