@@ -34,8 +34,8 @@ viret() {
   rm -rf $HOME/.cache/*
   rm -rf $HOME/.local/share/nvim
   rm -rf $HOME/.local/state/nvim
-  # chmod -R 700 $HOME/.go
-  # rm -rf $HOME/.go
+  chmod -R 700 $HOME/.go
+  rm -rf $HOME/.go
 }
 
 alias aptup='apt update && apt full-upgrade'

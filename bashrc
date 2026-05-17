@@ -3,6 +3,8 @@ export PATH="$HOME/.config/composer/vendor/bin:$HOME/.composer/vendor/bin:$PATH"
 export GOPATH="$HOME/.go"
 export XDG_RUNTIME_DIR="$PREFIX/tmp"
 
+export ANDROID_API_LEVEL=12
+
 export OLLAMA_NUM_PARALLEL=1
 export OLLAMA_MAX_LOADED_MODELS=1
 export OLLAMA_HOST=127.0.0.1:11434
