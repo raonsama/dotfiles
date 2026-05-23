@@ -6,8 +6,8 @@ apt update && apt full-upgrade -y
 
 # 2. Persiapan direktori
 mkdir -p $HOME/.config
-mkdir -p $HOME/workspaces
 mkdir -p $HOME/programming
+# mkdir -p $HOME/workspaces
 [ -d "$HOME/.termux" ] && rm -rf "$HOME/.termux"
 
 # 3. Membuat Symlinks (dengan pengecekan agar tidak error/double)
@@ -20,14 +20,17 @@ for file in "${files[@]}"; do
     ln -s "$(pwd)/$file" "$HOME/.$file"
 done
 
+[ -e "$PREFIX/bin/startx" ] && rm -f "$PREFIX/bin/startx"
+ln -s "$(pwd)/startxfce4_termux.sh" "$PREFIX/bin/startx"
+
 # 4. Install Packages (dikelompokkan agar rapi)
 echo "Installing packages..."
 apt install --fix-missing --fix-broken -y \
-  termux-api fish file ldd which tmux neovim \
-  lazygit build-essential ripgrep fd wget curl fzf \
-  bash-completion composer rust rust-analyzer rust-src \
+  termux-api x11-repo termux-x11-nightly pulseaudio xfce4 \
+  fish file ldd which tmux neovim lazygit build-essential \
+  ripgrep fd wget curl fzf bash-completion composer \
   nodejs golang php php-gd php-imagick php-ldap \
-  tree-sitter proot-distro ranger
+  tree-sitter ranger
 
 # 5. Install Laravel Installer
 if command -v composer &> /dev/null; then

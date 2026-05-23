@@ -39,7 +39,8 @@ viret() {
 }
 
 alias aptup='apt update && apt full-upgrade'
-alias root='pd sh termux --isolated --bind $HOME/workspaces:$HOME --bind $HOME/programming:$HOME/code --no-arch-warning'
+alias root='pd sh termux-docker --isolated --bind $HOME/workspaces:$HOME --bind $HOME/programming:$HOME/code'
+alias toor='pd sh debian --isolated --bind $HOME/workspaces:/root --bind $HOME/programming:/root/code'
 
 alias gi='git init'
 alias ga='git add'
