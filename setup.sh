@@ -26,11 +26,13 @@ ln -s "$(pwd)/startxfce4_termux.sh" "$PREFIX/bin/startx"
 # 4. Install Packages (dikelompokkan agar rapi)
 echo "Installing packages..."
 apt install --fix-missing --fix-broken -y \
-  termux-api x11-repo termux-x11-nightly pulseaudio xfce4 \
+  termux-api x11-repo pulseaudio xfce4 \
   fish file ldd which tmux neovim lazygit build-essential \
   ripgrep fd wget curl fzf bash-completion composer \
   nodejs golang php php-gd php-imagick php-ldap \
   tree-sitter ranger
+
+apt update && apt install -y termux-x11-nightly
 
 # 5. Install Laravel Installer
 if command -v composer &> /dev/null; then
