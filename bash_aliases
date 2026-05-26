@@ -182,7 +182,6 @@ cleanx11() {
         ".config/gtk-3.0"
         ".config/pulse"
         ".config/wireshark"
-        ".config/xfce4"
         ".local/share/gvfs-metadata"
         ".local/share/recently-used.xbel"
     )
