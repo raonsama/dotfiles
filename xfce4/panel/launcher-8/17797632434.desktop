@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Shutdown
+Comment=Force Shutdown Termux x11
+Exec=sh -c "current_pid=$$; pids=\$(pgrep -f 'termux.x11|pulseaudio|gpg-agent' | grep -v \$current_pid); if [ -n \"\$pids\" ]; then kill -9 \$pids; fi"
+Icon=system-shutdown-panel
+Path=
+Terminal=false
+StartupNotify=false
