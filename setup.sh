@@ -23,8 +23,11 @@ done
 [ -e "$PREFIX/bin/startx" ] && rm -f "$PREFIX/bin/startx"
 ln -s "$(pwd)/startxfce4_termux.sh" "$PREFIX/bin/startx"
 
-[ -e "$HOME/Desktop" ] && rm -f "$HOME/Desktop"
-ln -s "$(pwd)/Desktop" "$HOME/Desktop"
+[ -e "$HOME/.config/xfce4" ] && rm -f "$HOME/.config/xfce4"
+ln -s "$(pwd)/xfce4" "$HOME/.config/xfce4"
+
+# [ -e "$HOME/Desktop" ] && rm -f "$HOME/Desktop"
+# ln -s "$(pwd)/Desktop" "$HOME/Desktop"
 
 # 4. Install Packages (dikelompokkan agar rapi)
 echo "Installing packages..."
