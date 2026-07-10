@@ -2,7 +2,7 @@
 
 # 1. Update system di awal (sekali saja cukup)
 echo "Updating system..."
-apt update && apt full-upgrade -y
+apt update && apt install -y x11-repo && apt full-upgrade -y
 
 # 2. Persiapan direktori
 mkdir -p $HOME/.config
@@ -12,7 +12,7 @@ mkdir -p $HOME/programming
 
 # 3. Membuat Symlinks (dengan pengecekan agar tidak error/double)
 echo "Setting up symlinks..."
-files=("bash_aliases" "bashrc" "profile" "gitconfig" "termux" "tmux" "tmux.conf")
+files=("bash_aliases" "bashrc" "profile" "gitconfig" "termux" "tmux" "tmux.conf" "icons" "themes" "fonts")
 
 for file in "${files[@]}"; do
     # Hapus file/link lama jika ada agar ln tidak gagal
@@ -26,19 +26,18 @@ ln -s "$(pwd)/startxfce4_termux.sh" "$PREFIX/bin/startx"
 [ -e "$HOME/.config/xfce4" ] && rm -f "$HOME/.config/xfce4"
 ln -s "$(pwd)/xfce4" "$HOME/.config/xfce4"
 
-# [ -e "$HOME/Desktop" ] && rm -f "$HOME/Desktop"
-# ln -s "$(pwd)/Desktop" "$HOME/Desktop"
+#[ -e "$PREFIX/share/backgrounds/xfce/lucas.jpg" ] && rm -f "$PREFIX/share/backgrounds/xfce/lucas.jpg"
+#ln -s "$(pwd)/lucas.jpg" "$PREFIX/share/backgrounds/xfce/lucas.jpg"
 
 # 4. Install Packages (dikelompokkan agar rapi)
 echo "Installing packages..."
-apt install -y x11-repo
 apt update
 apt install --fix-missing --fix-broken -y \
   termux-api termux-x11-nightly pulseaudio xfce4 tur-repo \
   fish file ldd which tmux neovim lazygit build-essential \
   ripgrep fd wget curl fzf bash-completion composer \
   nodejs golang rust php php-gd php-imagick php-ldap \
-  tree-sitter ranger
+  tree-sitter
 
 # 5. Install Laravel Installer
 if command -v composer &> /dev/null; then

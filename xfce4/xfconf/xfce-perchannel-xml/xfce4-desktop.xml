@@ -10,7 +10,7 @@
     <property name="screen0" type="empty">
       <property name="monitorbuiltin" type="empty">
         <property name="workspace0" type="empty">
-          <property name="last-image" type="string" value="/data/data/com.termux/files/usr/share/backgrounds/xfce/lucas.jpg"/>
+          <property name="last-image" type="string" value="/data/data/com.termux/files/home/dotfiles/lucas.jpg"/>
         </property>
       </property>
     </property>
